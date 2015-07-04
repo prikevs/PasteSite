@@ -1,0 +1,58 @@
+
+<html>
+    <title>My</title>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+      {% for message in messages %}
+          <li>{{ message }}</li>
+            {% endfor %}
+              </ul>
+              {% endif %}
+{% endwith %}  
+    <form  action="" method="post">
+    <table align="center">
+        <tr>
+            <td>{{ form.poster.label }}</td> 
+            <td>
+                {{ form.poster(size=10) }}
+                {% for error in form.poster.errors %}
+                    <span style="color: red;">--{{ error }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form.syntax.label }}</td> 
+            <td>
+                {{ form.syntax() }}
+                {% for error in form.syntax.errors %}
+                    <span style="color: red;">--{{ error }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form.content.label }}</td> 
+            <td>
+                {{ form.content(cols=80, rows=30) }}
+                {% for error in form.content.errors %}
+                    <span style="color: red;">--{{ error }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        <td align="center">
+            <input type="submit" value="Paste!">
+        </td>
+        </tr>
+<!--  {% if form.errors %}
+        <ul class=errors>
+            {% for error in form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </table>
+    -->
+
+</html>
